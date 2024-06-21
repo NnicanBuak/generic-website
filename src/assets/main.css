@@ -1,0 +1,69 @@
+@import './base.css';
+
+#app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-weight: normal;
+}
+
+body{
+  background-color: #f4f2f2;
+}
+.main-page{
+  margin-left: 150px;
+  margin-right: 150px;
+}
+.header{
+  display: flex;
+}
+.name{
+  margin: 20px;
+}
+.city{
+  margin-top: 27px;
+  margin-left: 8px;
+}
+.first{
+  font-size: 30px;
+  display: inline;
+  color: #2c2c2c;
+  font-weight: normal;
+}
+.city span{
+  font-size: 13px;
+  color: #aaaaaa;
+}
+.image{
+
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.mayor{
+  background-color: white;
+}
+.second{
+  font-size: 28px;
+  font-weight: 500;
+  font-family: "Roboto Slab", serif;
+  color: #2c2c2c;
+  margin: 20px;
+}
+.text{
+  margin-bottom: 20px;
+  margin-right: 50px;
+  font-size: 15px;
+  font-family: "Roboto", sans-serif;
+  line-height: 1;
+  color: #777777;
+  margin: 20px;
+}
+.third{
+  font-size: 22px;
+  font-weight: 500;
+  font-family: "Roboto Slab", serif;
+  color: #2c2c2c;
+  margin: 20px;
+}
