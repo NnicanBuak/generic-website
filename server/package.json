@@ -1,8 +1,8 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT",
+  "main": "server.js",
+  "license": "GPL-3.0",
   "dependencies": {
     "express": "^4.19.2",
     "mongoose": "^8.4.3"
