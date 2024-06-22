@@ -1,0 +1,8 @@
+{
+  "name": "mono-generic-website",
+  "private": true,
+  "workspaces": [
+    "server-api",
+    "server-web"
+  ]
+}
