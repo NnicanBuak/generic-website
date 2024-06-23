@@ -5,7 +5,7 @@ const path = require('path');
 const crypto = require('crypto');
 const dataDirPath = path.join(__dirname, '../data');
 
-let secretKey = crypto.randomBytes(64).toString('hex'); // Генерация случайного секретного ключа
+let secretKey = crypto.randomBytes(64).toString('hex');
 
 // Функция для чтения данных из файла users.json
 function readUsersFromFile() {

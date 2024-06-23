@@ -7,12 +7,17 @@
 			"server-data",
 			"server-web"
 		],
-    "nohoist": [
-      "**"
-    ]
+		"nohoist": [
+			"**"
+		]
 	},
-  "installConfig": {
-    "hoistingLimits": "workspaces",
-    "pnp": false
-  }
+	"scripts": {
+		"api": "cd server-api && yarn run start",
+		"database": "cd server-data && yarn run start",
+		"web": "cd server-web && yarn run build"
+	},
+	"installConfig": {
+		"hoistingLimits": "workspaces",
+		"pnp": false
+	}
 }

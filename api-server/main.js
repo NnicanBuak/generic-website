@@ -1,13 +1,13 @@
 const express = require('express');
 const app = express();
 const port = 3000;
-const dataController = require('./controllers/placesDataController');
+const dataController = require('./~controllers/placesDataController');
 
 app.use(express.json());
 
 // Импорт маршрутов
-const authRoutes = require('./routes/authRoutes');
-const dataRoutes = require('./routes/dataRoutes');
+const authRoutes = require('./~routes/authRoutes');
+const dataRoutes = require('./~routes/placesDataRoutes');
 
 // Использование маршрутов
 app.use('/auth', authRoutes);
