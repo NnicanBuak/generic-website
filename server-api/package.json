@@ -1,5 +1,5 @@
 {
-  "name": "my-json-api",
+  "name": "api-app",
   "private": true,
   "version": "1.0.0",
   "main": "server.js",

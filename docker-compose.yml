@@ -1,0 +1,21 @@
+version: '2.27.1-desktop.1'
+services:
+  server-api:
+    build:
+      context: ./server-api
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./server-api:/app
+    environment:
+      - NODE_ENV=development
+
+  server-web:
+    build:
+      context: ./server-web
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./server-web:/app
+    environment:
+      - NODE_ENV=development
