@@ -1,23 +1,20 @@
 {
-	"name": "generic-website",
-	"private": true,
-	"workspaces": {
-		"packages": [
-			"server-api",
-			"server-data",
-			"server-web"
-		],
-		"nohoist": [
-			"**"
-		]
-	},
-	"scripts": {
-		"api": "cd server-api && yarn run start",
-		"database": "cd server-data && yarn run start",
-		"web": "cd server-web && yarn run build"
-	},
-	"installConfig": {
-		"hoistingLimits": "workspaces",
-		"pnp": false
-	}
+  "name": "generic-website",
+  "author": "NnicanBuak",
+  "private": true,
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "api": "cd server-api && yarn start",
+    "database": "cd server-data && yarn start",
+    "web": "cd server-web && yarn build"
+  },
+  "devDependencies": {
+    "prettier": "^3.3.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.2"
+  },
+  "nmHoistingLimits": "workspaces",
+  "packageManager": "yarn@4.3.1"
 }

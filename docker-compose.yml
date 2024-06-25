@@ -2,20 +2,20 @@ version: '2.27.1-desktop.1'
 services:
   server-api:
     build:
-      context: ./server-api
+      context: ./services/api-server
     ports:
       - "3000:3000"
     volumes:
-      - ./server-api:/app
+      - ./services/api-server:/app
     environment:
       - NODE_ENV=development
 
   server-web:
     build:
-      context: ./server-web
+      context: ./services//web-server
     ports:
       - "3001:3001"
     volumes:
-      - ./server-web:/app
+      - ./services/web-server:/app
     environment:
       - NODE_ENV=development
