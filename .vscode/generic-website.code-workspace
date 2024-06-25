@@ -1,0 +1,25 @@
+{
+	"folders": [
+		{
+			"name": "generic-website",
+			"path": ".."
+		},
+		{
+			"name": "web-server",
+			"path": "../apps/web-server"
+		},
+		{
+			"name": "generator-service",
+			"path": "../apps/generator-service"
+		}
+	],
+	"settings": {
+    "search.exclude": {
+      "**/.yarn": true,
+      "**/.pnp.*": true
+    },
+		"typescript.tsdk": "generic-website\\.yarn\\sdks\\typescript\\lib",
+		"typescript.enablePromptUseWorkspaceTsdk": true,
+		"workbench.settings.openDefaultSettings": true
+	}
+}
