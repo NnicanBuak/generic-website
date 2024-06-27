@@ -5,12 +5,12 @@
 			"path": ".."
 		},
 		{
-			"name": "web-server",
-			"path": "../apps/web-server"
+			"name": "web",
+			"path": "../apps/web"
 		},
 		{
-			"name": "generator-service",
-			"path": "../apps/generator-service"
+			"name": "database",
+			"path": "../apps/database"
 		}
 	],
 	"settings": {
