@@ -15,10 +15,54 @@
 			},
 		],
 	})
+
+	onMounted(() => {
+		const swiper = new Swiper('.newSwiper', {
+			spaceBetween: 30,
+			navigation: {
+				nextEl: '.swiper-button-next',
+				prevEl: '.swiper-button-prev',
+			},
+			pagination: {
+				el: '.swiper-pagination',
+			},
+			mousewhell: true,
+			Keyboard: true,
+		})
+
+		const continents = document.querySelectorAll('.place-point')
+		const popupBg = document.querySelector('.info-bg')
+		const popup__photo = document.querySelector('.info-photo')
+		const popup__title = document.querySelector('.info-title')
+		const popup__text = document.querySelector('.info-text')
+
+		document.addEventListener('click', (e) => {
+			if (e.target === popupBg) {
+				popupBg.classList.remove('active')
+			}
+		})
+	})
+
+	function handleClickPlacePoint(event) {
+		popup__title.textContent = this.getAttribute('data-title')
+		popup__photo.setAttribute('src', this.getAttribute('data-photo'))
+		popup__text.textContent = this.getAttribute('data-text')
+		popupBg.classList.add('active')
+	}
+
+	function handleMouseEnterPlacePoint(event) {
+		tooltip.textContent = item.getAttribute('data-title')
+		tooltip.style.display = 'block'
+	}
+
+	function handleMouseLeavePlacePoint(event) {
+		tooltip.textContent = item.getAttribute('data-title')
+		tooltip.style.display = 'none'
+	}
 </script>
 
 <template>
-	<main>
+	<main classs="wrapper">
 		<header>
 			<div class="name"><h1>Дождевой квартал</h1></div>
 			<div class="city"><span>район города Дождеград</span></div>
@@ -35,36 +79,45 @@
 					</div>
 					<div class="city swiper-slide">
 						<div class="block">
-							<svg viewbox="0 0 986 582">
+							<svg id="pins" viewbox="0 0 986 582">
 								<circle
 									data-text="Готовы к незабываемым приключениям? Добро пожаловать в «Водопад Чудес» - современный развлекательный центр, где вас ждет мир увлекательных аттракционов и ярких впечатлений! Погрузитесь в мир драйва и адреналина! Разнообразные семейные аттракционы для детей всех возрастов: от милых каруселей до забавных игровых автоматов. Помимо аттракционов, вас ждет: Обширная зона отдыха с уютными кафе, ресторанами и сувенирными лавками. Просторные игровые площадки для детей всех возрастов. Тематические шоу и представления для всей семьи. «Водопад Чудес» - это: Современные технологии и высочайшие стандарты безопасности. Незабываемые эмоции и яркие воспоминания. Приезжайте в «Водопад Чудес» - здесь сказка оживает!"
 									data-photo="/generated_img/park.jpg"
 									data-title="Развлекательный центр «Водопад Чудес»"
-									class="park"
+									class="place-point"
 									cx="270"
 									cy="250"
 									r="10"
 									fill="red"
+									@click="handleClickPlacePoint"
+									@mouseenter="handleMouseEnterPlacePoint"
+									@mouseleave="handleMouseLeavePlacePoint"
 								/>
 								<circle
 									data-text="Добро пожаловать в мир волшебства, где музыка, танцы и драма сливаются воедино, создавая незабываемые впечатления! Музыкальный театр - это не просто здание, это место, где рождаются эмоции, где истории оживают на глазах у зрителя. Проведите вечер в окружении красоты, искусства и эмоций, зарядитесь позитивом и вдохновением! Не упустите возможность посетить Музыкальный театр и открыть для себя мир, где мечты становятся реальностью!"
 									data-photo="/generated_img/music-theater.jpg"
 									data-title="Музыкальный театр"
-									class="park"
+									class="place-point"
 									cx="423"
 									cy="520"
 									r="10"
 									fill="red"
+									@click="handleClickPlacePoint"
+									@mouseenter="handleMouseEnterPlacePoint"
+									@mouseleave="handleMouseLeavePlacePoint"
 								/>
 								<circle
 									data-text="Сквер – это маленький уголок зеленого рая в шумном и суетливом городе. Здесь можно отдохнуть от повседневной суеты, насладиться свежим воздухом и красотой природы. Что может быть в сквере? Зеленые газоны, просто для того, чтобы понежиться на солнышке, цветущие клумбы, фонтан, скульптуры, лавочки, детские площадки. Сквер – это место для всех: для влюбленных, которые хотят провести время вдвоем, для семей с детьми, которые хотят весело провести время, для пожилых людей, которые хотят отдохнуть на свежем воздухе. Приходите в сквер и наслаждайтесь его красотой и спокойствием!"
 									data-photo="/generated_img/square.jpg"
 									data-title="Сквер: Оазис спокойствия в шумном городе"
-									class="park"
+									class="place-point"
 									cx="619"
 									cy="310"
 									r="10"
 									fill="red"
+									@click="handleClickPlacePoint"
+									@mouseenter="handleMouseEnterPlacePoint"
+									@mouseleave="handleMouseLeavePlacePoint"
 								/>
 							</svg>
 							<div class="map-image"><img src="/img/map.jpg" /></div>
@@ -184,6 +237,17 @@
 		font-family: 'Montserrat', sans-serif;
 	}
 
+	.block {
+		position: relative;
+	}
+
+	#pins {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+	}
+
 	.wrapper {
 		padding: 0 150px;
 	}
@@ -191,7 +255,7 @@
 	header {
 		display: flex;
 		align-items: center;
-		margin: 20px 0;
+		margin: 20px 150px;
 	}
 
 	h1 {
@@ -238,9 +302,6 @@
 		line-height: 1.5;
 	}
 
-	.swiper-wrapper {
-		margin-left: 50px;
-	}
 	.swiper-button-next,
 	.swiper-rtl .swiper-button-prev {
 		right: 140px;
