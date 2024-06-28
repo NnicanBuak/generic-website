@@ -1,18 +1,21 @@
-import { db } from '../../plugins/db/init';
+import { useDB } from '~/utils/db.js';
 
 const getAllPlaces = () => {
-  const stmt = db.prepare('SELECT * FROM places');
-  return stmt.all();
+  const db = useDB();
+  const statement = db.prepare('SELECT * FROM places');
+  return statement.all();
 };
 
 const getPlaceById = (id) => {
-  const stmt = db.prepare('SELECT * FROM places WHERE id = ?');
-  return stmt.get(id);
+  const db = useDB();
+  const statement = db.prepare('SELECT * FROM places WHERE id = ?');
+  return statement.get(id);
 };
 
 const createPlace = (place) => {
-  const stmt = db.prepare('INSERT INTO places (district_id, place_name, category, image, reviews, likes, visits, latitude, longitude, rating) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
-  const info = stmt.run(
+  const db = useDB();
+  const statement = db.prepare('INSERT INTO places (district_id, place_name, category, image, reviews, likes, visits, latitude, longitude, rating) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
+  const info = statement.run(
     place.district_id,
     place.name,
     place.category,
@@ -28,8 +31,9 @@ const createPlace = (place) => {
 };
 
 const updatePlace = (id, place) => {
-  const stmt = db.prepare('UPDATE places SET district_id = ?, name = ?, category = ?, image = ?, reviews = ?, likes = ?, visits = ?, latitude = ?, longitude = ?, rating = ? WHERE id = ?');
-  stmt.run(
+  const db = useDB();
+  const statement = db.prepare('UPDATE places SET district_id = ?, place_name = ?, category = ?, image = ?, reviews = ?, likes = ?, visits = ?, latitude = ?, longitude = ?, rating = ? WHERE id = ?');
+  statement.run(
     place.district_id,
     place.name,
     place.category,
@@ -46,8 +50,9 @@ const updatePlace = (id, place) => {
 };
 
 const deletePlace = (id) => {
-  const stmt = db.prepare('DELETE FROM places WHERE id = ?');
-  stmt.run(id);
+  const db = useDB();
+  const statement = db.prepare('DELETE FROM places WHERE id = ?');
+  statement.run(id);
   return { message: 'Place deleted' };
 };
 
