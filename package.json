@@ -10,6 +10,9 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "nuxt": "^3.12.2"
+    "better-sqlite3": "^11.1.1",
+    "nuxt": "^3.12.2",
+    "nuxt-swiper": "^1.2.2",
+    "sequelize": "^6.37.3"
   }
 }
