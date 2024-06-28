@@ -3,7 +3,7 @@ CREATE TABLE IF NOT EXISTS users (
   user_name TEXT NOT NULL UNIQUE,
   password_hash TEXT NOT NULL,
   is_admin INTEGER DEFAULT 0,
-  admin_token TEXT UNIQUE
+  access_token TEXT UNIQUE
 );
 
 CREATE TABLE IF NOT EXISTS districts (
