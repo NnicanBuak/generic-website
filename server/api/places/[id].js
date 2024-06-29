@@ -1,5 +1,5 @@
-import { getPlaceById, updatePlace, deletePlace } from '~/api/models/place.js';
-import { json_response, error_json_response } from '~/utils/responses.js';
+import { getPlaceById, updatePlace, deletePlace } from '~/server/api/models/place.js';
+import { json_response, error_json_response } from '~/server/utils/responses.js';
 
 export default defineEventHandler(async (event) => {
   const id = event.context.params.id;

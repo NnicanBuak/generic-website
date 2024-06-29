@@ -10,6 +10,7 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@nuxtjs/auth-next": "^5.0.0-1667386184.dfbbb54",
     "better-sqlite3": "^11.1.1",
     "nuxt": "^3.12.2",
     "nuxt-swiper": "^1.2.2",

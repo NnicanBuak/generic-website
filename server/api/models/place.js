@@ -1,4 +1,4 @@
-import { useDB } from '~/utils/db.js';
+import { useDB } from '~/server/utils/db.js'
 
 const getAllPlaces = () => {
   const db = useDB();

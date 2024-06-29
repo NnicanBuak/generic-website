@@ -1,9 +1,8 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
 	devtools: { enabled: false },
-	modules: ['nuxt-swiper'],
+	modules: ['nuxt-swiper', '@nuxtjs/auth-next'],
 	serverMiddleware: [
-    { path: '/api/places/:id', handler: '~/middleware/checkAccess.js' },
-    { path: '/api/places', handler: '~/middleware/checkAccess.js' },
-  ],
+		{ path: '/api/*', handler: '~/middleware/auth.js' },
+	],
 })
